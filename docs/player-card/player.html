@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>OGP Player</title>
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta name="og:title" content="OGP Player">
+  <meta name="og:description" content="">
+
+  <meta name="twitter:card" content="player">
+  <meta name="twitter:title" content="OGP Player">
+  <meta name="twitter:site" content="@beeeeinto">
+
+  <link rel="canonical" href="https://nyawach.github.io/ogp-tester/player-card/player.html">
+</head>
+<body>
+<canvas id="player"></canvas>
+
+<script>
+var W = 1200
+var H = 630
+var player = document.getElementById('player')
+var ctx = player.getContext('2d')
+
+player.width = W
+player.height = H
+
+ctx.fillStyle = '#333'
+ctx.fillRect(0, 0, W, H)
+
+var colors = ['#f0f0f0', '#80f0f0', '#f080f0', '#f0f080']
+var step = 0
+ctx.fillStyle = colors[step]
+ctx.font = "120px 'YuGothic'"
+var text = 'PLAYER'
+ctx.textAlign = 'center'
+ctx.textBaseline = 'middle'
+ctx.fillText(text, W / 2, H / 2)
+setInterval(() => {
+  step = (step + 1) % colors.length
+  ctx.fillStyle = colors[step]
+  ctx.fillText(text, W / 2, H / 2)
+}, 1000)
+</script>
+</body>
+</html>
